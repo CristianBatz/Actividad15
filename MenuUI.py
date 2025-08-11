@@ -4,13 +4,13 @@ def agregar_numero():
         entrada = input("Ingrese un numero o escriba 'volver' para regresar: ")
         if entrada.lower() == "volver":
             break
-    try:
-        numero = int(entrada)
-        numeros.append(numero)
-        print("Se ha agregado el numero exitosamente")
-        print(f"Lista actual: {numeros}")
-    except ValueError:
-        print("Entrada no válida, debe ser un número entero.")
+        try:
+            numero = int(entrada)
+            numeros.append(numero)
+            print("Se ha agregado el numero exitosamente")
+            print(f"Lista actual: {numeros}")
+        except ValueError:
+            print("Entrada no válida, debe ser un número entero.")
 
 
 def buscar_numero():

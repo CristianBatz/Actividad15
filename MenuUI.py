@@ -1,21 +1,41 @@
 def agregar_numero():
     print("===Registro de numeros===")
-    numero = int(input("Ingrese un numero: "))
-    numeros.append(numero)
-    print("Se ha agregado el numero exitosamente")
+    while True:
+        entrada = input("Ingrese un numero o escriba 'volver' para regresar: ")
+        if entrada.lower()=="volver":
+            break
+    try:
+        numero = int(entrada)
+        numeros.append(numero)
+        print("Se ha agregado el numero exitosamente")
+        print(f"Lista actual: {numeros}")
+    except ValueError:
+        print("Entrada no válida, debe ser un número entero.")
+
 
 def buscar_numero():
     print("===Buscar numero===")
-    buscar_numeros = int(input("Ingrese un numero: "))
-    if buscar_numeros in numeros:
-        print(f"Se ha encontrado el numero {buscar_numeros} exitosamente")
-    else:
-        print(f"No se ha encontrado el numero {buscar_numeros}")
+    while True:
+        entrada = input("Ingrese un numero o escriba 'volver' para regresar: ")
+        if entrada.lower()=="volver":
+            break
+        try:
+            buscar_numeros = int(entrada)
+            if buscar_numeros in numeros:
+                print(f"Se ha encontrado el numero {buscar_numeros} exitosamente")
+            else:
+                print(f"No se ha encontrado el numero {buscar_numeros}")
+            print(f"Lista actual: {numeros}")
+        except ValueError:
+            print("Entrada no válida, debe ser un número entero.")
+
+
 
 def mostrar_numeros():
     print("===Mostrar numeros====")
     for numero in numeros:
         print(numero)
+
 
 def eliminar_numero():
     print("===Eliminar numero===")
@@ -26,7 +46,8 @@ def eliminar_numero():
     else:
         print(f"No se ha encontrado el numero {numero}")
 
-opcion =0
+
+opcion = 0
 numeros = []
 while opcion != 5:
     print("===MENU INTERACTIVO===")
@@ -44,7 +65,7 @@ while opcion != 5:
     match opcion:
         case 1:
             confirmacion = ""
-            while confirmacion !="no".lower():
+            while confirmacion != "no".lower():
                 agregar_numero()
                 print("Desea volver a ingresar un numero")
                 confirmacion = input("Escriba (si/no): ")
@@ -77,7 +98,3 @@ while opcion != 5:
 
         case 5:
             print("=== Saliendo del programa ===")
-
-
-
-

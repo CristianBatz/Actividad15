@@ -1,8 +1,8 @@
 def agregar_numero():
-    print("===Registro de numeros===")
+    print("=== Registro de numeros ===")
     while True:
         entrada = input("Ingrese un numero o escriba 'volver' para regresar: ")
-        if entrada.lower()=="volver":
+        if entrada.lower() == "volver":
             break
     try:
         numero = int(entrada)
@@ -14,10 +14,10 @@ def agregar_numero():
 
 
 def buscar_numero():
-    print("===Buscar numero===")
+    print("=== Buscar numero ===")
     while True:
         entrada = input("Ingrese un numero o escriba 'volver' para regresar: ")
-        if entrada.lower()=="volver":
+        if entrada.lower() == "volver":
             break
         try:
             buscar_numeros = int(entrada)
@@ -30,27 +30,34 @@ def buscar_numero():
             print("Entrada no válida, debe ser un número entero.")
 
 
-
 def mostrar_numeros():
-    print("===Mostrar numeros====")
+    print("=== Mostrar numeros ===")
     for numero in numeros:
         print(numero)
 
 
 def eliminar_numero():
-    print("===Eliminar numero===")
-    numero = int(input("Ingrese un numero que desea eliminar: "))
-    if numero in numeros:
-        numeros.remove(numero)
-        print("Se ha eliminado el numero exitosamente")
-    else:
-        print(f"No se ha encontrado el numero {numero}")
+    print("=== Eliminar numero ===")
+    while True:
+        entrada = input("Ingrese un numero que desea eliminar: ")
+        if entrada.lower() == "volver":
+            break
+        try:
+            numero = int(entrada)
+            if numero in numeros:
+                numeros.remove(numero)
+                print("Se ha eliminado el numero exitosamente")
+            else:
+                print(f"No se ha encontrado el numero {numero}")
+            print(f"Lista actual: {numeros}")
+        except ValueError:
+            print("Entrada no válida, debe ser un número entero.")
 
 
 opcion = 0
 numeros = []
 while opcion != 5:
-    print("===MENU INTERACTIVO===")
+    print("=== MENU INTERACTIVO ===")
     print("1. Agregar numeros")
     print("2. Buscar numeros")
     print("3. Mostrar numeros")
